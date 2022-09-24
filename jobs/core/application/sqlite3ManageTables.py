@@ -89,9 +89,6 @@ class Table:
 def RunAll():
     tables = [
         Table('jobs_executionlog', 'createdAt', 30),
-        Table('report_log', 'started_at', 30),
-        Table('tempoCerto_xmllog', 'createdAt', 30),
-        Table('tempoCerto_xml', 'createdAt', 90),
     ]
 
     for table in tables:

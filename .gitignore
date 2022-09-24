@@ -1,7 +1,14 @@
-.sqlite3
+__pycache__/
+*.py[cod]
+*$py.class
+
+*.sqlite3
 .env.base
+.env
 .env.append
 .env.crypto
+token.pickle
 client_secrets.json
 
 amb
+tmp/*

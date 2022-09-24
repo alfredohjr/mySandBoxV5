@@ -46,9 +46,6 @@ INSTALLED_APPS = [
     'drf_yasg',
     'rest_framework.authtoken',
     'django_extensions',
-    'report',
-    'permission',
-    'tempoCerto',
     'jobs'
 ]
 
@@ -61,7 +58,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'report.core.middlewares.main.ReportLog',
     #'permission.src.middlewares.permission.Permission'
 ]
 
@@ -71,7 +67,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            'report/templates/',
+            
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -91,36 +87,21 @@ WSGI_APPLICATION = 'forReport.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASE_APPS_MAPPING = {
-    'rms':'rms',
-    'zanthus':'zanthus',
-    'senior':'senior'
-}
+DATABASE_APPS_MAPPING = {}
 
-DATABASE_ROUTERS = ['report.core.router.DatabaseAppsRouter']
+# TODO : Pegar isso daqui e trazer para o forReport
+# DATABASE_ROUTERS = ['report.core.router.DatabaseAppsRouter']
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     },
-    'rms': {
+    'oracleEX': {
                   'ENGINE': 'django.db.backends.oracle',
-                  'NAME': config.get('DB_RMS_NAME'),
-                  'USER': config.get('DB_RMS_USER'),
-                  'PASSWORD': config.get('DB_RMS_PASSWORD'),
-    },
-    'zanthus': {
-                  'ENGINE': 'django.db.backends.oracle',
-                  'NAME': config.get('DB_ZANTHUS_NAME'),
-                  'USER': config.get('DB_ZANTHUS_USER'),
-                  'PASSWORD': config.get('DB_ZANTHUS_PASSWORD'),
-    },
-    'senior': {
-                  'ENGINE': 'django.db.backends.oracle',
-                  'NAME': config.get('DB_SENIOR_NAME'),
-                  'USER': config.get('DB_SENIOR_USER'),
-                  'PASSWORD': config.get('DB_SENIOR_PASSWORD'),
+                  'NAME': config.get('DB_NAME'),
+                  'USER': config.get('DB_USER'),
+                  'PASSWORD': config.get('DB_PASSWORD'),
     }
 }
 

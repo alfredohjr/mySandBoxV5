@@ -17,14 +17,10 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path, include
 
-from report import urls as urls_report
-from tempoCerto import urls as urls_tempocerto
 from jobs import urls as urls_jobs
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('report/', include(urls_report),name='reports'),
-    path('tempocerto/', include(urls_tempocerto),name='tempocerto'),
     path('jobs/', include(urls_jobs),name='jobs'),
 ]
