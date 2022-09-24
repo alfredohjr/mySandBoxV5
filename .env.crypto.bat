@@ -1,0 +1,1 @@
+amb\Scripts\python.exe jobs\core\sec\main.py

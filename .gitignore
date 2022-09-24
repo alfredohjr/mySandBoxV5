@@ -1,0 +1,7 @@
+.sqlite3
+.env.base
+.env.append
+.env.crypto
+client_secrets.json
+
+amb
