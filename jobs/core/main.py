@@ -14,6 +14,7 @@ from jobs.core.google.folder.main import Folder
 from jobs.core.log.logger import setup_logger
 
 from jobs.core.message.mail.main import Mail
+from jobs.core.message.telegram.main import f_send_msg
 
 from jobs.core.web.main import webScrapping
 
