@@ -54,6 +54,9 @@ class crypto_file:
 
         for line in f1:
             line = self.crypto.get_text(line)
+            if line.endswith('='):
+                continue
+            
             config = StringIO(line)
             load_dotenv(stream=config)
     
@@ -86,7 +89,6 @@ class crypto_file:
             line = f'{k}={v}'
             line = self.crypto.set_text(line)
             f.write(line.decode() + '\n')
-            print(f'escrevendo valores para a variavel {k}')
         f.close()
 
     def config(self):
