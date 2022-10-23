@@ -69,15 +69,15 @@ Homologado para Python 3.10.
 ## Funcionalidades:
 1. Crie crontabs de Scripts feito em python.
    1. Adicione o script.
-    ![log](docs/media/script.gif)
+    ![log](https://github.com/alfredohjr/mySandBoxV5/raw/master/docs/media/script.gif)
    1. Adicione o crontab crontab.
-    ![log](docs/media/crontab.gif)
+    ![log](https://github.com/alfredohjr/mySandBoxV5/raw/master/docs/media/crontab.gif)
 
     *Obs.: para o crontab, utilize as sintaxes \*(sempre), 1-5(de segunda a sexta), 1/10(a cada 10 minutos) ou 12(somente em dezembro).* 
 2. Visualize log de execução.
-    ![log](docs/media/log.gif)
+    ![log](https://github.com/alfredohjr/mySandBoxV5/raw/master/docs/media/log.gif)
 3. Agende tarefas para o futuro.
-    ![log](docs/media/manual.gif)
+    ![log](https://github.com/alfredohjr/mySandBoxV5/raw/master/docs/media/manual.gif)
 
 ## Outras funcionalidades.
 1. Mande mensagens.
