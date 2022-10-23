@@ -4,6 +4,8 @@ Um aplicativo para automatizar rotinas utilizando python.
 
 Homologado para Python 3.10.
 
+![](docs/media/logo.png#vitrinedev)
+
 ## Para instalar!
 
 1. Faça o clone do repositório.
