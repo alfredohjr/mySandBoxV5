@@ -63,6 +63,8 @@ Homologado para Python 3.10.
     ```console
     python manage.py runscript runCrontab
     ```
+## Detalhes:
+1. O processo só lê os Scripts da pasta jobs/scripts
 
 ## Funcionalidades:
 1. Crie crontabs de Scripts feito em python.
