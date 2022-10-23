@@ -5,8 +5,6 @@ import os
 import sqlite3
 import socket
 
-from jobs.core.google.file.main import File
-from jobs.core.google.folder.main import Folder
 from jobs.core.log.logger import setup_logger
 
 log = setup_logger('core')
@@ -46,15 +44,7 @@ class Table:
             log.info(f'Exported {month}')
 
     def upload(self):
-        log.info(f'Uploading {self.name}')
-        df = File()
-        dff = Folder()
-        for file in self.files:
-            log.info(f'Uploading {file}')
-            fileId = df.create(file)
-            fileId = fileId.get('id')
-            dff.move(fileId=fileId,parent='BKPForReport')
-            log.info(f'Uploaded {file}')
+        pass
 
     def delete(self):
         log.info(f'Deleting {self.name}')

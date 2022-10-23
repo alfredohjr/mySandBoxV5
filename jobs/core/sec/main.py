@@ -4,6 +4,8 @@ from cryptography.fernet import Fernet
 from dotenv import load_dotenv
 import argparse
 
+isCrypto = False
+
 class crypto:
     def __init__(self,key=None):
         if key is None:
@@ -22,19 +24,20 @@ class crypto:
 class crypto_file:
 
     def __init__(self,loadFile=False):
+
         self.loadFile = loadFile
+        if isCrypto:
+            if os.environ.get('API_KEY') is None or os.environ.get('API_USER') is None:
+                raise Exception('API_KEY e API_USER não definido, use -o generate para gerar um token')
 
-        if os.environ.get('API_KEY') is None or os.environ.get('API_USER') is None:
-            raise Exception('API_KEY e API_USER não definido, use -o generate para gerar um token')
-
-        if os.environ.get('API_KEY'):
-            self.crypto = crypto(key=os.environ.get('API_KEY'))
-        
-        if os.environ.get('API_USER'):
-            pass
-        else:
-            pass
-        self.file = '.env.crypto'
+            if os.environ.get('API_KEY'):
+                self.crypto = crypto(key=os.environ.get('API_KEY'))
+            
+            if os.environ.get('API_USER'):
+                pass
+            else:
+                pass
+            self.file = '.env.crypto'
 
     def crypto_file(self,file):
         f = open(file,'r')
@@ -59,6 +62,17 @@ class crypto_file:
             
             config = StringIO(line)
             load_dotenv(stream=config)
+
+    def load_file(self,file):
+        f = open(file,'r')
+        f1 = f.readlines()
+        f.close()
+
+        for line in f1:
+            if line.endswith('='):
+                continue
+            config = StringIO(line)
+            load_dotenv(stream=config)
     
     def append_line(self,file):
 
@@ -73,6 +87,11 @@ class crypto_file:
             k = line.split('=')[0]
             v = '='.join(line.split('=')[1:])
             env[k] = v.replace('\n','')
+        
+        f = open('.env.dec','w')
+        for k,v in env.items():
+            f.write(f'{k}={v}\n')
+        f.close()
 
         f = open(file,'r')
         f1 = f.readlines()
@@ -93,8 +112,11 @@ class crypto_file:
 
     def config(self):
 
-        if self.loadFile or os.environ.get('appname',None) is None:
-            self.decrypt_file('.env')
+        if isCrypto:
+            if self.loadFile or os.environ.get('appname',None) is None:
+                self.decrypt_file('.env')
+        else:
+            self.load_file('.env')
 
         return os.environ
             

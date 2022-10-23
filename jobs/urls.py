@@ -4,12 +4,14 @@ from django.urls.conf import include
 from rest_framework import routers
 
 from jobs.core.api.viewsets import ScriptsViewSets, ExecutionManualViewSets, ExecutionLogViewSets
+from jobs.views import Crontab2Manual
 
 router = routers.DefaultRouter()
-router.register('api/scripts', ScriptsViewSets, basename='jobsscripts')
-router.register('api/manual', ExecutionManualViewSets, basename='jobsmanual')
-router.register('api/log', ExecutionLogViewSets, basename='executionlog')
+router.register('/scripts', ScriptsViewSets, basename='jobsscripts')
+router.register('/manual', ExecutionManualViewSets, basename='jobsmanual')
+router.register('/log', ExecutionLogViewSets, basename='executionlog')
 
 urlpatterns = [
-    path('',include(router.urls)),
+    path('api',include(router.urls)),
+    path('crontab2manual',Crontab2Manual,name='crontab2manual')
 ]

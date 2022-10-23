@@ -108,7 +108,6 @@ class PythonService(SMWinservice):
                     subprocess.Popen(f'amb\Scripts\python.exe manage.py runserver 0.0.0.0:{port}', shell=True)
                     subprocess.Popen('amb\Scripts\python.exe manage.py runscript runCrontab', shell=True)
                     subprocess.Popen('amb\Scripts\pip.exe freeze > requeriments.txt', shell=True)
-
                     created = True
                 except subprocess.CalledProcessError as e:
                     f = open('tmp/Service.log','a')

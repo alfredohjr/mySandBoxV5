@@ -13,6 +13,9 @@ class Groups(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name_plural = 'Groups'
+
 
 class Scripts(models.Model):
 
@@ -26,6 +29,9 @@ class Scripts(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name_plural = 'Scripts'
 
 
 class Crontab(models.Model):
@@ -57,6 +63,9 @@ class ExecutionLog(models.Model):
     message = models.TextField(null=True, blank=True)
     createdAt = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return str(self.id)
+
 
 class ExecutionManual(models.Model):
 
@@ -66,5 +75,8 @@ class ExecutionManual(models.Model):
     arguments = models.TextField(blank=True, null=True)
     startAt = models.DateTimeField(default=timezone.now)
     finishedAt = models.DateTimeField(blank=True, null=True)
+
+    def __str__(self):
+        return self.script.name
 
 

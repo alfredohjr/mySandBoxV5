@@ -2,10 +2,8 @@ import os
 import datetime
 import zipfile
 import socket
-from ..google.folder.main import Folder
 
 from jobs.core.log.logger import setup_logger
-from jobs.core.google.file.main import File
 
 log = setup_logger('core')
 
@@ -53,10 +51,3 @@ def run():
                     log.error(f'Erro ao remover arquivo {file}')
         
         zipObj.close()
-
-        f = File()
-        dff = Folder()
-
-        fileId = f.create(file_zip)
-        fileId = fileId.get('id')
-        dff.move(fileId=fileId,parent='BKPForReport')

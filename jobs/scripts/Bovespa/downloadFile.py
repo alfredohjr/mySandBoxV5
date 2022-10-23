@@ -31,6 +31,11 @@ def f_bovhist(dias):
 
 if __name__ == '__main__':
 
-	dias = 10000
+	parse = argparse.ArgumentParser()
+	parse.add_argument('-d','--dias')
+	args = parse.parse_args()
+
+	dias = int(args.dias)
+
 	log.info(f'Dias:{dias}')
 	f_bovhist(dias)

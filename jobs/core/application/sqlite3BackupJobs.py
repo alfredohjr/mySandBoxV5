@@ -3,8 +3,6 @@ import datetime
 import sqlite3
 import socket
 
-from jobs.core.google.file.main import File
-from jobs.core.google.folder.main import Folder
 from jobs.core.log.logger import setup_logger
 
 log = setup_logger('core')
@@ -24,14 +22,8 @@ class Backup:
         df.to_csv(self.file,index=None)
 
     def upload(self):
-        df = File()
-        dff = Folder()
-        log.info(f'Uploading {self.file}')
-        fileId = df.create(self.file)
-        fileId = fileId.get('id')
-        dff.move(fileId=fileId,parent='BKPForReport')
-        log.info(f'Uploaded {self.file}')
-
+        pass
+    
     def run(self):
         log.info(f'Exporting {self.name}')
         self.export()

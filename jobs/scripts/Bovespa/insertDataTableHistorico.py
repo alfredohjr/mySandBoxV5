@@ -1,6 +1,7 @@
 import sqlite3
 import datetime
 import pandas as pd
+import argparse
 
 from jobs.core.main import setup_logger, f_periodo_v6
 from jobs.scripts.conf import bovespa_db
@@ -163,4 +164,9 @@ def load(dias):
 
 if __name__ == '__main__':
 
-	load(7500)		
+	parse = argparse.ArgumentParser()
+	parse.add_argument('-d','--dias')
+	args = parse.parse_args()
+
+	dias = int(args.dias)
+	load(dias)		

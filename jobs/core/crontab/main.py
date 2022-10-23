@@ -52,7 +52,7 @@ def run2Django(script, idScript, idCrontab, arguments:str=''):
         , startedAt = None
         , finishedAt = None)
 
-    if execLog:
+    if execLog and idCrontab is not None:
         execLog = ExecutionLog(
             script_id=idScript
             , crontab_id=idCrontab
@@ -74,7 +74,7 @@ def run2Django(script, idScript, idCrontab, arguments:str=''):
     log.info(f'arguments:{arguments}')
     log.info(f'python jobs/scripts/{script} {arguments}')
     try:
-        subprocess.check_output(f'python jobs/scripts/{script} {arguments}' , env=env, stderr=subprocess.STDOUT)
+        subprocess.check_output(f'amb/Scripts/python.exe jobs/scripts/{script} {arguments}' , env=env, stderr=subprocess.STDOUT)
         log.info('process ' + script + ' success')
         execLog.success = True
     except subprocess.CalledProcessError as e:
