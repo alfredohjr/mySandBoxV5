@@ -4,7 +4,7 @@ Um aplicativo para automatizar rotinas utilizando python.
 
 Homologado para Python 3.10.
 
-![](docs/media/logo.png#vitrinedev)
+![](https://github.com/alfredohjr/mySandBoxV5/raw/master/docs/media/logo.png#vitrinedev)
 
 ## Para instalar!
 
